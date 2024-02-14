@@ -5,8 +5,10 @@ from Modules.Alerts.Discord_webhook import send_cve_webhook
 
 DB_path = 'Modules/Database/CVE/CVE_DATA.db'
 
+
 def create_cves_table():
     if not os.path.exists(f"Modules/Database/CVE/CVE_DATA.db"):
+        os.makedirs("Modules/Database/CVE")
         conn = sqlite3.connect('Modules/Database/CVE/CVE_DATA.db')
         cursor = conn.cursor()
 
